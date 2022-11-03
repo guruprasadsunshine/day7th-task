@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>task 7th array methods</title>
+</head>
+<body>
+ 
+    
+    <h2>My First JavaScript</h2>
+
+    <button type="button"
+    onclick="document.getElementById('demo').innerHTML = Date()">
+    Click me to display Date and Time.</button>
+    
+    <p id="demo"></p>
+
+
+
+<script>
+    var contri = new XMLHttpRequest()
+contri.open('GET',"https://restcountries.com/v3.1/all")
+contri.send();
+contri.onload = function (){
+   var data = JSON.parse(contri.response)
+    console.log(data)
+
+//-------region ---filter-- function----// 
+    var rescountries = data.filter((asia)=>asia.region=="Asia")
+console.log(rescountries)
+ 
+
+//-----------------less than population 2 lakh-------------//
+var rescountries1 = data.filter((asia)=>asia.population <2_00_000)
+console.log(rescountries1)
+
+
+
+
+   rescountries1.forEach((guru,hari )=> {console.log(guru.name.common,hari +1)})
+   rescountries1.forEach((guru,hari)=> {console.log(guru.capital,hari+1)})
+   rescountries1.forEach((guru,hari) =>{console.log(guru.flags.svg,hari+1)})
+   
+//    rescountries1.forEach((guru,hari) =>{console.log(guru.name.common.currencies=="USD",hari+1)})
+
+   let population = data.reduce((a,b)=> a+b.population,0)
+console.log(population)
+
+
+//----------------usd dollar -----------------//
+
+var rescountries12 = data.filter((asia)=>asia.currencies == "USD")
+console.log(rescountries12)
+
+
+}
+
+  
+
+
+
+
+</script>
+
+
+</body>
+</html>
