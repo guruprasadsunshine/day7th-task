@@ -51,10 +51,12 @@ console.log(population)
 
 //----------------usd dollar -----------------//
 
-var rescountries12 = data.filter((asia)=>asia.currencies == "USD")
-console.log(rescountries12)
 
-
+var cur = data.filter((element) => element.currencies)
+let cur2 = cur.filter((elements) => elements.currencies.USD)
+let cur3 = cur2.map((element)=> element.name.common)
+console.log(" country which uses US Dollars as currency.",cur3)
+    
 }
 
   
